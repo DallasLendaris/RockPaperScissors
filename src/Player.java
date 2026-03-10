@@ -2,25 +2,10 @@ package src;
 import java.util.HashMap;
 import java.util.Scanner;
 public class Player{
-    private int wins;
-    private int ties;
     private int roundCount;
     private HashMap<Integer, Round> roundHistory = new HashMap<>();
     public Player(){
-        wins = 0;
-        ties = 0;
-    }
-    public int getWins(){
-        return wins;
-    }
-    public void setWins(int w){
-        wins = w;
-    }
-    public int getTies(){
-        return ties;
-    }
-    public void setTies(int t){
-        ties = t;
+        roundCount = 1;
     }
     public int getRC(){
         return roundCount;
@@ -46,7 +31,7 @@ public class Player{
         String choice;
 
         do {
-            System.out.print("Enter your choice (Rock, Paper, or Scissors): ");
+            System.out.print("Round " + roundCount + ", Enter your choice (Rock, Paper, or Scissors): ");
             choice = scanner.nextLine().trim().toLowerCase(); // Convert input to lowercase
 
             if (!choice.equals("rock") && !choice.equals("paper") && !choice.equals("scissors")) {
