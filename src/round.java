@@ -1,9 +1,9 @@
 package src;
-public class round {
+public class Round {
     private String playerChoice;
-    private boolean result;
+    private String result;
 
-    public round(String pc, boolean res){
+    public Round(String pc, String res){
         playerChoice = pc;
         result = res;
     }
@@ -11,7 +11,7 @@ public class round {
     public String getPC(){
         return playerChoice;
     }
-    public boolean getRes(){
+    public String getRes(){
         return result;
     }
 

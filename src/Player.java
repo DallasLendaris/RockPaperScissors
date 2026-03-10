@@ -1,14 +1,15 @@
 package src;
 import java.util.HashMap;
-public class Player extends Game{
+import java.util.Scanner;
+public class Player{
     private int wins;
     private int ties;
-    private HashMap<Integer, round> roundHistory = new HashMap<>();
+    private int roundCount;
+    private HashMap<Integer, Round> roundHistory = new HashMap<>();
     public Player(){
         wins = 0;
         ties = 0;
     }
-
     public int getWins(){
         return wins;
     }
@@ -21,20 +22,45 @@ public class Player extends Game{
     public void setTies(int t){
         ties = t;
     }
+    public int getRC(){
+        return roundCount;
+    }
+    public Round getRH(int round){
+        return roundHistory.get(round);
+    }
+    public String convertChoice(int choice){
+        switch(choice){
+            case 1:
+                return "rock";
+            case 2:
+                return "paper";
+            case 3:
+                return "scissors";
+            default:
+                return "";
+        }
+    }
     
     public String chooseOption(){
-        // Provides the user with the option of rock, paper, or scissors
-        // return the users choice
+        Scanner scanner = new Scanner(System.in);
+        String choice;
+
+        do {
+            System.out.print("Enter your choice (Rock, Paper, or Scissors): ");
+            choice = scanner.nextLine().trim().toLowerCase(); // Convert input to lowercase
+
+            if (!choice.equals("rock") && !choice.equals("paper") && !choice.equals("scissors")) {
+                System.out.println("Invalid input. Please enter Rock, Paper, or Scissors.");
+            }
+        } while (!choice.equals("rock") && !choice.equals("paper") && !choice.equals("scissors"));
+
+        return choice; // Return the lowercase word
     }
 
-    public void updateRoundHistory(int roundCount, String playerChoice, boolean result){
+    public void updateRoundHistory(String playerChoice, String result){
         // this will update the users roundHistory
-        round obj = new round(playerChoice, result);
+        Round obj = new Round(playerChoice, result);
         roundHistory.put(roundCount, obj);
+        roundCount++;
     }
-
-
-
-
-   
 }

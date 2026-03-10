@@ -1,14 +1,15 @@
 package src;
 public class SmartCP extends RandomCP{
-    private 
     @Override
-    public int chooseOption(){
+    public String chooseOption(){
         // If the last round result was a loss ...
         // else randomly choose
-    }
-
-     public void updateRoundHistory(int roundCount, string playerChoice, string result)
-        // this will update the users roundHistory
-        super(roundCou
+        Round lastRound = getRH(getRC()-1);
+        if(lastRound.getRes().equals("lost")){
+            return "Rock";
+        }
+        else{
+            return convertChoice((int)(Math.random() * 3) + 1);
+        }
     }
 }
