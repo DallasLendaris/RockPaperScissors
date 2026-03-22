@@ -1,4 +1,6 @@
-package src;
+package rockpaperscissors;
+
+
 public class GeniusCP extends SmartCP{
     private int rockTotal;
     private int paperTotal;
@@ -31,6 +33,8 @@ public class GeniusCP extends SmartCP{
         else if(updateOption.equals("paper")){paperTotal++;}
         else{scissorsTotal++;}
     }
+    
+    @Override
     public String chooseOption(){
         // (if) every round where round % 5 = 0 repeat the choice from the last round
         // (else if) After 5 round, for every other round choose the option that beats the opponents most used option

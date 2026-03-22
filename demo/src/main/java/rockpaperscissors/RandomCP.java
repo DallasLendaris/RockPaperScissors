@@ -1,5 +1,6 @@
-package src;
-public class RandomCP extends Player{
+package rockpaperscissors;
+
+public class RandomCP extends ComputerPlayer{
     
     @Override
     public String chooseOption(){

@@ -1,4 +1,4 @@
-package src;
+package rockpaperscissors;
 public class Round {
     private String playerChoice;
     private String result;
